@@ -4,9 +4,9 @@
 ## Author: Hongyi Wu(吴鸿毅)
 ## Email: wuhongyi@qq.com 
 ## Created: 五 1月 19 12:14:48 2018 (+0800)
-## Last-Updated: 六 1月 20 21:49:49 2018 (+0800)
+## Last-Updated: 二 6月  5 04:51:16 2018 (+0800)
 ##           By: Hongyi Wu(吴鸿毅)
-##     Update #: 7
+##     Update #: 8
 ## URL: http://wuhongyi.cn 
 
 
@@ -26,7 +26,10 @@ GXX = g++
 ROOTCFLAGS  = $(shell root-config --cflags) # -pthread -std=c++11 -m64   dir include
 ROOTLIBS    = $(shell root-config --libs)  # dir lib   -lCore -lImt -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lTreePlayer -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -pthread -lm -ldl -rdynamic
 ROOTGLIBS   = $(shell root-config --glibs) # dir lib   -lGui -lCore -lImt -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lTreePlayer -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -pthread -lm -ldl -rdynamic
-ROOTADDLIBS = -lGeom -lSpectrum -lMinuit -lMinuit2 -lGQt -lQtGSI -lQtRoot -lXMLParser 
+
+
+
+ROOTADDLIBS = -lGeom -lSpectrum -lMinuit -lMinuit2 #-lGQt -lQtGSI -lQtRoot -lXMLParser 
 
 QT4_INC = -I/usr/include/Qt
 QT4_LIB = -L/usr/lib64/lib -lQtCore -lQtGui
@@ -34,7 +37,7 @@ QT4_LIB = -L/usr/lib64/lib -lQtCore -lQtGui
 # ------------------
 
 ## 用户补充需要加载的库
-DIR_INC = -I$(shell pwd)/include $(ROOTCFLAGS)
+DIR_INC = -I$(shell pwd)/include -I$(shell pwd)/inc $(ROOTCFLAGS)
 DIR_LIB = $(ROOTLIBS) $(ROOTGLIBS) $(ROOTADDLIBS)
 CFLAGS  = -g -Wall -O2  -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
 
